@@ -5,18 +5,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object  RetrofitFactory {
 
-    private var retrofit: Retrofit
     private val API_URL = "https://static.leboncoin.fr"
 
+    private var retrofit: Retrofit = Retrofit.Builder()
+        .baseUrl(API_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
 
-    init {
-        retrofit = Retrofit.Builder()
-            .baseUrl(API_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-    }
-
-    fun getRetrofit(): Retrofit? {
+    fun getRetrofit(): Retrofit {
         return retrofit
     }
 

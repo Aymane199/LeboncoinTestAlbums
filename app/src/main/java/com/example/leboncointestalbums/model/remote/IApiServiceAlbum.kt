@@ -10,6 +10,6 @@ import retrofit2.http.GET
 interface IApiServiceAlbum {
 
     @GET("/img/shared/technical-test.json")
-    fun getAlbums(): Call<List<Album?>?>?
+    fun getAlbums(): Call<List<Album>>
 
 }
