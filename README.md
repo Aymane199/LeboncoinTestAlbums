@@ -9,3 +9,5 @@ Test technique à réaliser, une application native Android affichant la liste d
 - [ ] Improve UI
 
 # Dependencies used
+- navigation-fragment
+- Lifecycle (viewmodel)
