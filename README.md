@@ -5,7 +5,7 @@ Test technique à réaliser, une application native Android affichant la liste d
 - [x] Mvvm_architecture_implemetation
 - [x] Model implementation
 - [ ] View implementation (basic ui)
-- [ ] MovelView implementation
+- [x] MovelView implementation
 - [ ] Improve UI
 
 # Dependencies used
