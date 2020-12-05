@@ -3,7 +3,7 @@ Test technique à réaliser, une application native Android affichant la liste d
 
 # TODO List
 - [x] Mvvm_architecture_implemetation
-- [ ] Model implementation
+- [x] Model implementation
 - [ ] View implementation (basic ui)
 - [ ] MovelView implementation
 - [ ] Improve UI
