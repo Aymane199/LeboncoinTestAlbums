@@ -6,8 +6,9 @@ Test technique à réaliser, une application native Android affichant la liste d
 - [x] Model implementation
 - [X] View implementation (basic ui)
 - [x] MovelView implementation
-- [ ] Improve UI
-- [ ] local database
+- [x] Improve UI
+- [ ] Local database
+- [ ] Splash screen
 
 # Dependencies used
 - navigation-fragment
