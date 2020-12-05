@@ -12,21 +12,23 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AlbumRepository(val application: Application) {
+class AlbumRepository() {
 
     val showProgress = MutableLiveData<Boolean>()
     val albumList = MutableLiveData<List<Album>>()
 
 
     fun getAlbums() {
+        Log.d("SearchRepository" , "getAlbums<<")
+
         showProgress.value = true
         // Networkcall
         val service = RetrofitFactory.getRetrofit().create(IApiServiceAlbum::class.java)
 
         service.getAlbums().enqueue(object  : Callback<List<Album>>{
             override fun onFailure(call: Call<List<Album>>, t: Throwable) {
+                Log.d("SearchRepository" , "failure")
                 showProgress.value = false
-                Toast.makeText(application,"Error wile accessing the API",Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(
@@ -39,5 +41,8 @@ class AlbumRepository(val application: Application) {
             }
 
         })
+
+        Log.d("SearchRepository" , "getAlbums>>")
+
     }
 }
