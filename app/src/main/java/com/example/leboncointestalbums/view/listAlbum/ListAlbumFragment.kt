@@ -28,7 +28,7 @@ class ListAlbumFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_list_album, container, false)
 
         //RecycleView
-        val adapter = DataAdapterListAlbum()
+        val adapter = context?.let { DataAdapterListAlbum(it) }
         val recyclerView = view.recycleView
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -37,7 +37,7 @@ class ListAlbumFragment : Fragment() {
         //ViewModel
         viewModel = ViewModelProvider(this).get(ListAlbumViewModel::class.java)
         viewModel.albumList.observe(viewLifecycleOwner, Observer {
-            adapter.setData(viewModel.albumList.value!!)
+            adapter?.setData(viewModel.albumList.value!!)
         })
         viewModel.showProgress.observe(viewLifecycleOwner, Observer {
             view.progressBar.visibility = if (viewModel.showProgress.value == true) View.VISIBLE else View.INVISIBLE
