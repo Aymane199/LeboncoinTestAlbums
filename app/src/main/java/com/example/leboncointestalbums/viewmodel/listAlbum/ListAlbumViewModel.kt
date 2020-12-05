@@ -13,7 +13,7 @@ class ListAlbumViewModel (application: Application):AndroidViewModel(application
     val albumList : LiveData<List<Album>>
 
     init {
-        this.showProgress = repository.showProgress
+        this.showProgress = repository.loading
         this.albumList = repository.albumList
     }
 
