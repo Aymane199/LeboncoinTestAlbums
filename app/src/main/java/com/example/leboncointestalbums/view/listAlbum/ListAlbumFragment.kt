@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.leboncointestalbums.R
 import com.example.leboncointestalbums.viewmodel.listAlbum.ListAlbumViewModel
+import kotlinx.android.synthetic.main.fragment_list_album.view.*
 
 
 class ListAlbumFragment : Fragment() {
@@ -22,18 +23,22 @@ class ListAlbumFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val view = inflater.inflate(R.layout.fragment_list_album, container, false)
+
+
         viewModel = ViewModelProvider(this).get(ListAlbumViewModel::class.java)
 
         viewModel.albumList.observe(viewLifecycleOwner, Observer {
             Log.d("ListAlbumFragment","albumList : ${viewModel.albumList.value.toString()}")
         })
         viewModel.showProgress.observe(viewLifecycleOwner, Observer {
-            Toast.makeText(activity,"${viewModel.showProgress.value}",Toast.LENGTH_LONG).show()
+
+            view.progressBar.visibility = if (viewModel.showProgress.value == true) View.VISIBLE else View.INVISIBLE
+
         })
 
         viewModel.getAlbums()
-
-        return inflater.inflate(R.layout.fragment_list_album, container, false)
+        return view
 
 
     }
